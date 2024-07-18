@@ -16,7 +16,6 @@ const HotCollections = () => {
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
     );
     setHotCollections(response.data);
-    console.log(response)
     setLoading(false);
   }
 
@@ -24,12 +23,36 @@ const HotCollections = () => {
     fetchHotCollections();
   }, []);
 
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "gray", borderRadius: "50%"}}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "gray", borderRadius: "50%" }}
+        onClick={onClick}
+      />
+    );
+  }
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 768,
@@ -64,7 +87,7 @@ const HotCollections = () => {
           </div>
           <Slider {...settings}>
             {loading ? (
-              <div className="p-2">
+              <div className="">
                 <div className="nft_coll">
                   <div className="nft_wrap">
                     <Skeleton width={282} height={270} />
