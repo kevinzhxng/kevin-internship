@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Slider from "react-slick";
 import Skeleton from "../UI/Skeleton";
+import Countdown from "../UI/Countdown";
 
 const NewItems = () => {
   const [items, setItems] = useState([]);
@@ -14,7 +15,6 @@ const NewItems = () => {
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`
     );
     setItems(response.data);
-    console.log(response.data);
     setLoading(false);
   }
 
@@ -117,7 +117,7 @@ const NewItems = () => {
           <Slider {...settings}>
             {loading
               ? items.map((item, index) => (
-                  <div className="p-2">
+                  <div className="p-2" key={index}>
                     <div className="nft_coll">
                       <div className="nft_wrap">
                         <Skeleton width={500} height={270} />
@@ -138,7 +138,7 @@ const NewItems = () => {
                   </div>
                 ))
               : items.map((item, index) => (
-                  <div className="" key={index}>
+                  <div className="p-2" key={index}>
                     <div className="nft__item">
                       <div className="author_list_pp">
                         <Link
@@ -151,8 +151,11 @@ const NewItems = () => {
                           <i className="fa fa-check"></i>
                         </Link>
                       </div>
-                      <div className="de_countdown">5h 30m 32s</div>
-
+                      <div>
+                        {item.expiryDate ? (
+                          <Countdown key={item.id} expiryDate={item.expiryDate} />
+                        ) : null}
+                      </div>
                       <div className="nft__item_wrap">
                         <div className="nft__item_extra">
                           <div className="nft__item_buttons">
