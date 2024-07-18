@@ -28,7 +28,7 @@ const HotCollections = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "gray", borderRadius: "50%"}}
+        style={{ ...style, display: "block", background: "gray", borderRadius: "50%", width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center"}}
         onClick={onClick}
       />
     );
@@ -39,7 +39,7 @@ const HotCollections = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "gray", borderRadius: "50%" }}
+        style={{ ...style, display: "block", background: "gray", borderRadius: "50%", width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center"}}
         onClick={onClick}
       />
     );
@@ -87,6 +87,7 @@ const HotCollections = () => {
           </div>
           <Slider {...settings}>
             {loading ? (
+              hotCollections.map((collections, index) => (
               <div className="">
                 <div className="nft_coll">
                   <div className="nft_wrap">
@@ -106,6 +107,7 @@ const HotCollections = () => {
                   </div>
                 </div>
               </div>
+              ))
             ) : (
               hotCollections.map((collections, index) => (
                 <div className="p-2" key={index}>

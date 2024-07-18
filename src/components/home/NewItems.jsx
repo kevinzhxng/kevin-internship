@@ -29,7 +29,7 @@ const NewItems = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "gray", borderRadius: "50%" }}
+        style={{ ...style, display: "block", background: "gray", borderRadius: "50%", width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center" }}
         onClick={onClick}
       />
     );
@@ -40,7 +40,7 @@ const NewItems = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "gray", borderRadius: "50%" }}
+        style={{ ...style, display: "block", background: "gray", borderRadius: "50%", width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center" }}
         onClick={onClick}
       />
     );
