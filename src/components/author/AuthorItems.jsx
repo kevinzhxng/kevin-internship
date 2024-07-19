@@ -5,14 +5,17 @@ import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 
 const AuthorItems = ({ data, authorPic }) => {
-    
-
+  if (!data || !data.nftCollection) {
+    return null;
+  }
 
   return (
     <div className="de_tab_content">
       <div className="tab-1">
         <div className="row">
-          {data.map((nft, index) => (
+          {data ? (
+            data.nftCollection.map((data, index) => (
+
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
               <div className="nft__item">
                 <div className="author_list_pp">
@@ -22,24 +25,7 @@ const AuthorItems = ({ data, authorPic }) => {
                   </Link>
                 </div>
                 <div className="nft__item_wrap">
-                  <div className="nft__item_extra">
-                    <div className="nft__item_buttons">
-                      <button>Buy Now</button>
-                      <div className="nft__item_share">
-                        <h4>Share</h4>
-                        <a href="" target="_blank" rel="noreferrer">
-                          <i className="fa fa-facebook fa-lg"></i>
-                        </a>
-                        <a href="" target="_blank" rel="noreferrer">
-                          <i className="fa fa-twitter fa-lg"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-envelope fa-lg"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <Link to={`/item-details/`}>
+                  <Link to={`/item-details/${data.nftId}`}>
                     <img
                       src={data.nftImage}
                       className="lazy nft__item_preview"
@@ -48,7 +34,7 @@ const AuthorItems = ({ data, authorPic }) => {
                   </Link>
                 </div>
                 <div className="nft__item_info">
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${data.nftId}`}>
                     <h4>{data.title}</h4>
                   </Link>
                   <div className="nft__item_price">{data.price} ETH</div>
@@ -59,7 +45,8 @@ const AuthorItems = ({ data, authorPic }) => {
                 </div>
               </div>
             </div>
-          ))}
+            ))
+          ) : null}
         </div>
       </div>
     </div>
