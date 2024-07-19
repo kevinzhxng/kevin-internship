@@ -78,7 +78,7 @@ const NewItems = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -87,7 +87,7 @@ const NewItems = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
