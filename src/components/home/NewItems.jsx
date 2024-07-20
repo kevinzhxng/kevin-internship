@@ -4,6 +4,8 @@ import axios from "axios";
 import Slider from "react-slick";
 import Skeleton from "../UI/Skeleton";
 import Countdown from "../UI/Countdown";
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 const NewItems = () => {
   const [items, setItems] = useState([]);
@@ -20,6 +22,7 @@ const NewItems = () => {
 
   useEffect(() => {
     fetchItems();
+    Aos.init();
   }, []);
 
   function SampleNextArrow(props) {
@@ -110,7 +113,7 @@ const NewItems = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
+              <h2 data-aos="fade-in">New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -139,7 +142,7 @@ const NewItems = () => {
                 ))
               : items.map((item, index) => (
                   <div className="p-2" key={index}>
-                    <div className="nft__item">
+                    <div className="nft__item" data-aos="fade-in">
                       <div className="author_list_pp">
                         <Link
                           to={`/author/${item.authorId}`}

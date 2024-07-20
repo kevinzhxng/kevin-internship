@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 const TopSellers = () => {
   const [sellers, setSellers] = useState([]);
@@ -19,6 +21,7 @@ const TopSellers = () => {
 
   useEffect(() => {
     fetchSellers();
+    Aos.init()
   }, []);
 
   function loadingSkeleton(index) {
@@ -44,12 +47,12 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Top Sellers</h2>
+              <h2 data-aos="fade-in">Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           <div className="col-md-12">
-            <ol className="author_list">
+            <ol className="author_list" data-aos="fade-in">
               {loading ? (
                 <>
                   {new Array(12).fill(0).map((_, index) => {
