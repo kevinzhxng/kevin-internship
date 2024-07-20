@@ -4,7 +4,6 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 import Aos from "aos";
-import 'aos/dist/aos.css'
 
 const TopSellers = () => {
   const [sellers, setSellers] = useState([]);
