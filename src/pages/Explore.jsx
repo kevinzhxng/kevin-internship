@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
-import Aos from "aos";
-import 'aos/dist/aos.css'
 
 const Explore = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    Aos.init();
   }, []);
 
   return (

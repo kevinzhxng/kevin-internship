@@ -5,7 +5,6 @@ import Slider from "react-slick";
 import Skeleton from "../UI/Skeleton";
 import Countdown from "../UI/Countdown";
 import Aos from "aos";
-import 'aos/dist/aos.css'
 
 const NewItems = () => {
   const [items, setItems] = useState([]);
