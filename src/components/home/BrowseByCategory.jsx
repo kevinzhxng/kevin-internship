@@ -1,4 +1,5 @@
 import Aos from "aos";
+import 'aos/dist/aos.css';
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
