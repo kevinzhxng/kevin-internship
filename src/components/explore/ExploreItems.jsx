@@ -5,6 +5,8 @@ import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Countdown from "../UI/Countdown";
 import Skeleton from "../UI/Skeleton";
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 const ExploreItems = () => {
   const [items, setItems] = useState([]);
@@ -30,6 +32,7 @@ const ExploreItems = () => {
 
   useEffect(() => {
     fetchItems();
+    Aos.init();
   }, []);
 
   function skeleton(index) {

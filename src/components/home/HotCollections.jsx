@@ -5,6 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Skeleton from "../UI/Skeleton";
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 const HotCollections = () => {
   const [hotCollections, setHotCollections] = useState([]);
@@ -20,6 +22,7 @@ const HotCollections = () => {
   }
 
   useEffect(() => {
+    Aos.init();
     fetchHotCollections();
   }, []);
 
@@ -81,7 +84,7 @@ const HotCollections = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 data-aos="fade-in">Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -111,7 +114,7 @@ const HotCollections = () => {
             ) : (
               hotCollections.map((collections, index) => (
                 <div className="p-2" key={index}>
-                  <div className="nft_coll">
+                  <div className="nft_coll" data-aos="fade-in">
                     <div className="nft_wrap">
                       <Link to={`/item-details/${collections.nftId}`}>
                         <img
